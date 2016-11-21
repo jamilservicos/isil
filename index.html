@@ -1,65 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Socket.IO chat</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font: 13px Helvetica, Arial;
-        }
-
-        form {
-            background: #000;
-            padding: 3px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        form input {
-            border: 0;
-            padding: 10px;
-            width: 90%;
-            margin-right: .5%;
-        }
-
-        form button {
-            width: 9%;
-            background: rgb(130, 224, 255);
-            border: none;
-            padding: 10px;
-        }
-
-        #messages {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        #messages li {
-            padding: 5px 10px;
-        }
-
-        #messages li:nth-child(odd) {
-            background: #eee;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Isil Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 </head>
 <body>
-<ul id="messages"></ul>
-<form action="">
-    <input id="m" autocomplete="off"/>
-    <button>Send</button>
-</form>
-<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-  
+<style type="text/css">
+    *, *:after, *:before {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        font-family: "Calibri", Arial, "Open Sans", "Ubuntu", sans-serif;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 100%;
+        background-color: #FFF;
+        color: #000;
+    }
+
+    canvas {
+        display: block;
+        margin: 0 auto !important;
+        padding: 0;
+    }
+
+    .clearfix {
+        clear: both !important;
+    }
+</style>
+
+<div id="loading">Carregando...</div>
+
+<script type="application/javascript">
+    window.sessionStorage.setItem('background', null);
+    function loadJS(src, callback) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        s.onreadystatechange = s.onload = function () {
+            var state = s.readyState;
+            if (!callback.done && (!state || /loaded|complete/.test(state))) {
+                callback.done = true;
+                callback();
+            }
+        };
+        document.getElementsByTagName('head')[0].appendChild(s);
+    }
+
+    function loadIsil() {
+        loadJS('https://dl.dropboxusercontent.com/u/14626206/isil/assets/js/isil.js', function () {
+            var stage;
+            var canv = document.createElement('canvas');
+            canv.id = 'mainCanvas';
+
+            document.body.appendChild(canv);
+            prepareMain();
+        });
+    }
+
+    function loadCreatejs() {
+        loadJS('https://code.createjs.com/createjs-2015.11.26.min.js', function () {
+            loadIsil();
+        });
+    }
+
+    window.onload = function () {
+        document.createElement("article");
+        document.createElement("footer");
+        document.createElement("header");
+        document.createElement("nav");
+        document.createElement("menu");
+        document.createElement("video");
+        loadCreatejs();
+    };
+
 </script>
 </body>
 </html>
