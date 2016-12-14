@@ -19,3 +19,17 @@
 <div class="formBtn"><a id="formSend">Conectar</a></div>
 </div>
 </div>
+
+ <script>
+      // initialize Account Kit with CSRF protection
+      AccountKit_OnInteractive = function(){
+        AccountKit.init(
+          {
+            appId:{{appId}}, 
+            state:"{{csrf}}", 
+            version:"{{version}}"
+          }
+        );
+      };
+      
+</script>
