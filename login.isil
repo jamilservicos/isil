@@ -70,7 +70,7 @@
     }
 
     function loginBtn() {
-        var form = getInputs()
+        var form = getInputs();
         AccountKit.login('PHONE',
             form, // will use default values if this is not specified
             loginCallback);
