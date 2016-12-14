@@ -1,0 +1,21 @@
+<div class="loginContainer">
+<div class="loginTop">
+<h4>Seja Bem Vindo(a)!</h4>
+<p>No momento n&atilde;o estamos aceitando novos usu&aacute;rios.</p>
+<p>Caso voc&ecirc; tenha registrado-se como usuario beta, e n&atilde;o lembre a senha, voc&ecirc; poder&aacute; solicitar uma nova senha <a href="#">AQUI</a>.</p>
+</div>
+<div class="clearfix"></div>
+<div class="loginForm">
+<div class="formLabel">Email:</div>
+<div class="formInput">
+<input type="text" class="input" id="formUser" placeholder="E-mail" maxlength="254">
+</div>
+<div class="clearfix"></div>
+<div class="formLabel">Senha:</div>
+<div class="formInput">
+<input type="password" class="input" id="formPass" placeholder="Senha" maxlength="32">
+</div>
+<div class="clearfix"></div>
+<div class="formBtn"><a id="formSend">Conectar</a></div>
+</div>
+</div>
