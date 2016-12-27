@@ -9,3 +9,4 @@ tsd.json
 *.iml
 .git
 .idea
+.assets
